@@ -1,0 +1,8 @@
+{
+  "directory": [
+    "./src/components",
+    "./src/hooks",
+    "./src/forms"
+  ],
+  "delete": true
+}
