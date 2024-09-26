@@ -1,0 +1,30 @@
+{
+  "name": "tailwind-custom-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate-barrels": "barrelsby --directory ./src --delete"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "barrelsby": "^2.8.1",
+    "eslint": "^9.11.1",
+    "eslint-plugin-react": "^7.36.1",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "react-dom": "^18"
+  }
+}
