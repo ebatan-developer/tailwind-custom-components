@@ -1,6 +1,6 @@
 {
   "name": "tailwind-custom-components",
-  "version": "0.0.1-alpha.0",
+  "version": "0.0.2",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -29,6 +29,7 @@
     "prettier": "^3.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "release-it": "^17.6.0",
     "tailwindcss": "^3.4.13",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.7.0"
