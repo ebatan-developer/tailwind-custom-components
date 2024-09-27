@@ -1,5 +1,5 @@
 {
-  "name": "tailwind-custom-components",
+  "name": "@ebatan-lab/tailwind-custom-components",
   "version": "0.0.3",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
