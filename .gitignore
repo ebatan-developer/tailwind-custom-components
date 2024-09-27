@@ -153,3 +153,4 @@ libs/
 
 *storybook.log
 lib/
+src/index.ts
