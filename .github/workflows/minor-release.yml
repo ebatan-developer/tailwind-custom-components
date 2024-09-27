@@ -1,25 +1,36 @@
-name: Publish Minor Release
+name: auto-release
 on:
   push:
     branches:
-      - release/minor
+      - develop
 jobs:
-  build:
+  auto-release:
     runs-on: ubuntu-latest
+    env:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      RELEASE_IT_VERSION: 17.6.0
+      RELEASE_IT_CHANGELOG_VERSION: 8.0.2
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v2
         with:
-          node-version: '18.x'
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Minor release
-        run: npm version minor
-      - name: Publish Alpha Release
-        run: npm publish --tag minor --access public
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # ポイント1
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Set releaser settings
+        run: |
+          git config --global user.name release-bot
+          git config --global user.email release-bot@github-koya-ebata.com
+      - name: Set .npmrc
+        # ポイント2
+        run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+#      - name: Major release
+#        id: major
+#        run: npx --package release-it@${RELEASE_IT_VERSION} --package @release-it/conventional-changelog@${RELEASE_IT_CHANGELOG_VERSION} release-it major --ci
+#      - name: Minor release
+#        id: minor
+#        run: npx --package release-it@${RELEASE_IT_VERSION} --package @release-it/conventional-changelog@${RELEASE_IT_CHANGELOG_VERSION} release-it minor --ci
+      - name: Patch release
+        run: npx --package release-it@${RELEASE_IT_VERSION} --package @release-it/conventional-changelog@${RELEASE_IT_CHANGELOG_VERSION} release-it patch --ci
