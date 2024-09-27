@@ -17,7 +17,7 @@ jobs:
       - name: Build
         run: npm run build
       - name: Alpha release
-        run: npm version prerelease
+        run: npm version prerelease --no-git-tag-version --preid=alpha
       - name: Publish Alpha Release
         run: npm publish --tag alpha --access public
         env:
