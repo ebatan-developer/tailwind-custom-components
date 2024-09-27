@@ -19,6 +19,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
+      - run: npm ci
+      - run: npm run build
       - name: Set releaser settings
         run: |
           git config --global user.name release-bot
