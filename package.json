@@ -1,7 +1,8 @@
 {
   "name": "tailwind-custom-components",
   "version": "0.0.1-alpha.0",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "generate-barrels": "barrelsby -c barrelsby.json",
     "build": "barrelsby -c barrelsby.json && tsc",
